@@ -24,7 +24,7 @@ def parse_args():
 args = parse_args()
 
 model = YOLO(args.weights)
-model.model.fuse()
+model.fuse()
 YOLOv8 = model.model.model
 
 strides = YOLOv8[-1].stride.detach().cpu().numpy()

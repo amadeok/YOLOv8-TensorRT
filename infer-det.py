@@ -1,5 +1,5 @@
 from models import TRTModule  # isort:skip
-import argparse
+import argparse, time
 from pathlib import Path
 
 import cv2
@@ -8,6 +8,15 @@ import torch
 from config import CLASSES, COLORS
 from models.torch_utils import det_postprocess
 from models.utils import blob, letterbox, path_to_list
+
+
+CLASSES   = ['bo', 'bo_h', 'fbo', 'fbo_h', 'be', 'be_h', 'fbe', 'fbe_h', 't', 't_h', 'dbo', 'dbe', 'dfbo', 'dfbe', 'dt' ]
+cpy = COLORS.copy()
+n = 0
+for key, value in cpy.items():
+    if n < len(CLASSES):
+        COLORS[CLASSES[n]] = value
+        n+=1
 
 
 def main(args: argparse.Namespace) -> None:
@@ -28,6 +37,7 @@ def main(args: argparse.Namespace) -> None:
         save_image = save_path / image.name
         bgr = cv2.imread(str(image))
         draw = bgr.copy()
+        last_time = time.time()
         bgr, ratio, dwdh = letterbox(bgr, (W, H))
         rgb = cv2.cvtColor(bgr, cv2.COLOR_BGR2RGB)
         tensor = blob(rgb, return_seg=False)
@@ -43,7 +53,7 @@ def main(args: argparse.Namespace) -> None:
             continue
         bboxes -= dwdh
         bboxes /= ratio
-
+        print(f"fps: {round(1 / (time.time() - last_time), 2):5} {round(time.time() - last_time, 5):8}")
         for (bbox, score, label) in zip(bboxes, scores, labels):
             bbox = bbox.round().int().tolist()
             cls_id = int(label)
@@ -57,7 +67,7 @@ def main(args: argparse.Namespace) -> None:
                         thickness=2)
         if args.show:
             cv2.imshow('result', draw)
-            cv2.waitKey(0)
+            cv2.waitKey(1000 )
         else:
             cv2.imwrite(str(save_image), draw)
 

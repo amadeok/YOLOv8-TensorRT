@@ -1,0 +1,54 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "infer detection ",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "args": ["--engine", "best.engine", "--imgs", "C:\\cap\\000002", "--show", "--out-dir", "outputs", "--device", "cuda:0"],
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
+            "name": "create engine",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "args": [
+                "--weights",
+                "best.pkl",
+                "--iou-thres",
+                "0.65",
+                "--conf-thres",
+                "0.65",
+                "--topk",
+                "16",
+                "--fp16",
+                "--device",
+                "cuda:0"
+            ],
+            "justMyCode": true
+        },
+        {
+            "name": "create pkl",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "args": [
+                //"--weights",
+                //"F:\\all\\GitHub\\bluetooth_test\\runs\\detect\\train9\\weights\\best.onnx",
+                "--w",
+                "F:\\all\\GitHub\\bluetooth_test\\runs\\detect\\train9\\weights\\best.pt",
+                "-o",
+                "best.pkl"
+            ],
+            "justMyCode": true
+        }
+    ]
+}

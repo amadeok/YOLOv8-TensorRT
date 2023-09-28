@@ -18,9 +18,10 @@ class EngineBuilder:
             self,
             checkpoint: Union[str, Path],
             device: Optional[Union[str, int, torch.device]] = None) -> None:
-        checkpoint = Path(checkpoint) if isinstance(checkpoint,
-                                                    str) else checkpoint
-        assert checkpoint.exists() and checkpoint.suffix in ('.onnx', '.pkl')
+        checkpoint = Path(checkpoint) if isinstance(checkpoint, str) else checkpoint
+
+        assert checkpoint.exists() 
+        assert checkpoint.suffix in ('.onnx', '.pkl')
         self.api = checkpoint.suffix == '.pkl'
         if isinstance(device, str):
             device = torch.device(device)
