@@ -44,7 +44,8 @@
                 //"--weights",
                 //"F:\\all\\GitHub\\bluetooth_test\\runs\\detect\\train9\\weights\\best.onnx",
                 "--w",
-                "F:\\all\\GitHub\\bluetooth_test\\runs\\detect\\train9\\weights\\best.pt",
+                //"F:\\all\\GitHub\\bluetooth_test\\runs\\detect\\train9\\weights\\best.pt",
+                "F:\\all\\GitHub\\bluetooth_test\\runs\\detect\\train\\weights\\best.pt",
                 "-o",
                 "best.pkl"
             ],
