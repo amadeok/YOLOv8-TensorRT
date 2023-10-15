@@ -7,7 +7,8 @@ from typing import List, Optional, Tuple, Union
 import onnx
 import tensorrt as trt
 import torch
-
+# print(torch.backends.cudnn.version())
+# print(torch.version.cuda)
 os.environ['CUDA_MODULE_LOADING'] = 'LAZY'
 
 
