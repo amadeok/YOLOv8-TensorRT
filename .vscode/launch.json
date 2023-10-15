@@ -9,7 +9,7 @@
             "type": "python",
             "request": "launch",
             "program": "${file}",
-            "args": ["--engine", "best.engine", "--imgs", "C:\\cap\\000002", "--show", "--out-dir", "outputs", "--device", "cuda:0"],
+            "args": ["--engine", "best.engine", "--imgs", "C:\\cap\\000001", "--show", "--out-dir", "outputs", "--device", "cuda:0"],
             "console": "integratedTerminal",
             "justMyCode": true
         },
@@ -44,7 +44,7 @@
                 //"--weights",
                 //"F:\\all\\GitHub\\bluetooth_test\\runs\\detect\\train9\\weights\\best.onnx",
                 "--w",
-                //"F:\\all\\GitHub\\bluetooth_test\\runs\\detect\\train9\\weights\\best.pt",
+                //"C:\\cap\\best.pt",
                 "F:\\all\\GitHub\\bluetooth_test\\runs\\detect\\train\\weights\\best.pt",
                 "-o",
                 "best.pkl"
