@@ -139,3 +139,6 @@ dmypy.json
 .pyre/
 best.pkl
 best.pkl
+csrc/detect/end2end/.vs/
+csrc/detect/end2end/.vs/end2end/v17/.wsuo
+csrc/detect/end2end/.vs/cmake.db

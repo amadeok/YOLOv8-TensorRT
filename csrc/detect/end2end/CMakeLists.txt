@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.1)
 
 set(CMAKE_CUDA_ARCHITECTURES 60 61 62 70 72 75 86 89 90)
-set(CMAKE_CUDA_COMPILER /usr/local/cuda/bin/nvcc)
+set(CMAKE_CUDA_COMPILER C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v11.8/bin/nvcc)
 
 project(yolov8 LANGUAGES CXX CUDA)
 
